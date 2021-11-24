@@ -14,9 +14,12 @@ export default new Router()
   .match('/new/:path*', shoppingFlowRouteHandler)
 
   // PDP pages
+  // example path /holiday-gifts/christmas-gifts/the-snow-fairy-experience/9999902245.html
+  .match('/:path/:group/:item/:file',shoppingFlowRouteHandler)
+
+
 
   // example route for cacheable assets:
-  // example path /dw/image/v2/BDMQ_PRD/on/demandware.static/-/Sites-lushcosmetics-export/default/dw3b520c36/images/product/29435_hero1.jpg?sw=400&sh=400
   .match('/dw/image/v2/:id*', ({ cache, proxy }) => {
     cache(CACHE_ASSETS)
     return proxy('origin')
