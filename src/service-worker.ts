@@ -29,6 +29,7 @@ new Prefetcher({
         as: 'image',
         callback: deepFetchPLPImagesTwo,
       },
+// add additional deepFetch plugin
     ]),
   ],
 })
@@ -57,7 +58,7 @@ function deepFetchPLPImagesTwo({ $el, el, $ }: DeepFetchCallbackParam) {
   prefetch(url, 'image')
 }
 
-
+//add callback function
 
 // function logPrefetchedContent({$el}) { // for testing
 //   // console.log("[][]][][[][]][][][][][[]][[][][]")
