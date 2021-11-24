@@ -29,7 +29,15 @@ new Prefetcher({
         as: 'image',
         callback: deepFetchPLPImagesTwo,
       },
-// add additional deepFetch plugin
+      {
+        //                        <img itemprop="image" loading="lazy" class="pdp-carousel-image d-block img-fluid blur-up mx-auto ls-is-cached lazyloaded" src="https://www.lushusa.com/dw/image/v2/BDMQ_PRD/on/demandware.static/-/Sites-lushcosmetics-export/default/dwd0cd70a3/images/product/60818_5.jpg?sw=450&amp;sh=450" data-src="https://www.lushusa.com/dw/image/v2/BDMQ_PRD/on/demandware.static/-/Sites-lushcosmetics-export/default/dwd0cd70a3/images/product/60818_5.jpg?sw=450&amp;sh=450" alt="Lime Bounty">
+        // entire example element <img itemprop="image" loading="lazy" class="pdp-carousel-image d-block img-fluid blur-up mx-auto ls-is-cached lazyloaded" src="https://www.lushusa.com/dw/image/v2/BDMQ_PRD/on/demandware.static/-/Sites-lushcosmetics-export/default/dwdcce3195/images/product/60953_1.jpg?sw=450&amp;sh=450" data-src="https://www.lushusa.com/dw/image/v2/BDMQ_PRD/on/demandware.static/-/Sites-lushcosmetics-export/default/dwdcce3195/images/product/60953_1.jpg?sw=450&amp;sh=450" alt="Snow Fairy">
+        selector: 'img.pdp-carousel-image',
+        maxMatches: 1,
+        attribute: 'data-src',
+        as: 'image',
+        callback: deepFetchPDPAboveFold,
+      }
     ]),
   ],
 })
@@ -58,9 +66,14 @@ function deepFetchPLPImagesTwo({ $el, el, $ }: DeepFetchCallbackParam) {
   prefetch(url, 'image')
 }
 
-//add callback function
+function deepFetchPDPAboveFold({ $el, el, $ }: DeepFetchCallbackParam) {
 
-// function logPrefetchedContent({$el}) { // for testing
-//   // console.log("[][]][][[][]][][][][][[]][[][][]")
-//   console.log("content '"+$el.attr('src')+"' has been prefetched...")
-// }
+  const url = ' '+$el.attr('data-src').split('https://www.lushusa.com/')[1]
+  console.log("[][]][][[][]][][][][][[]][[][][]\nPrefetching PDP: "+url+"\n")
+  prefetch(url, 'image')
+}
+
+function logPrefetchedContent({$el}) { // for testing
+  console.log("[][]][][[][]][][][][][[]][[][][]")
+  console.log("content '" + '/'+$el.attr('data-src').split('https://www.lushusa.com/')[1]+"' has been prefetched...")
+}
