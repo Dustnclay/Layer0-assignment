@@ -6,3 +6,11 @@ I would dig a little more into what it looks like to cache the css/javascript fi
 
 * Any feedback you may have for Layer0 regarding the process.
 I believe this assessment did exactly what is was designed to do, It was a mixture of quick learning, researching, and Implementing using your product. I really enjoyed the dive into using your product to optimize a site, It was a challenge, an introduction to the day to day of what the position would be, and I learned a lot.The pre-written code, examples, and the docs were phenomenal, essentially every question I had was answered with a little digging into the docs. Overall I thought this was a great exercise.
+
+----------------------- Comparison of websites ---------------------------------------
+The first thing I noticed is the time that was reduced after visiting the site the first time. On the original site the time remained around four seconds each run, with layer0 my initial load is 3 seconds and it remains less than 3 for the next two runs.
+
+largest contentful paint forstep one dropped from 2.5 t 2.1 
+-for step 2 it drops from 6.6 to 3.4
+
+My time to first byte is on the original site has an error stating that it is unusually high but after implementing layer0 it's dropping from 1.7 down to .6 
